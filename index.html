@@ -1,0 +1,2145 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width,
+               initial-scale=1.0,
+               maximum-scale=1.0,
+               user-scalable=no">
+
+<meta name="theme-color" content="#08020d">
+
+<title>For Emine Alagoz ❤️</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    -webkit-tap-highlight-color:transparent;
+}
+
+html,
+body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+}
+
+body{
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #21051a 0%,
+            #0b020d 45%,
+            #020106 100%
+        );
+
+    color:white;
+    touch-action:manipulation;
+}
+
+canvas{
+    position:fixed;
+    inset:0;
+    width:100%;
+    height:100%;
+    z-index:0;
+}
+
+
+/* ==============================
+   BACKGROUND GLOW
+================================ */
+
+.glow{
+    position:fixed;
+    width:45vw;
+    height:45vw;
+
+    max-width:500px;
+    max-height:500px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,40,130,.22),
+            transparent 70%
+        );
+
+    filter:blur(25px);
+
+    left:50%;
+    top:50%;
+
+    transform:
+        translate(-50%,-50%);
+
+    pointer-events:none;
+
+    z-index:1;
+}
+
+
+/* ==============================
+   MAIN CONTAINER
+================================ */
+
+.overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:5;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:
+        max(18px, env(safe-area-inset-top))
+        max(18px, env(safe-area-inset-right))
+        max(18px, env(safe-area-inset-bottom))
+        max(18px, env(safe-area-inset-left));
+
+    pointer-events:none;
+
+}
+
+
+/* ==============================
+   CARD
+================================ */
+
+.card{
+
+    width:
+        min(
+            92vw,
+            520px
+        );
+
+    max-height:
+        calc(100dvh - 36px);
+
+    overflow:auto;
+
+    padding:
+        clamp(25px,6vw,45px)
+        clamp(20px,6vw,35px);
+
+    text-align:center;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.12),
+            rgba(255,255,255,.045)
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,.16);
+
+    border-radius:
+        clamp(22px,6vw,32px);
+
+    backdrop-filter:
+        blur(22px);
+
+    -webkit-backdrop-filter:
+        blur(22px);
+
+    box-shadow:
+
+        0 25px 80px
+        rgba(0,0,0,.45),
+
+        0 0 80px
+        rgba(255,0,110,.15),
+
+        inset
+        0 1px
+        rgba(255,255,255,.12);
+
+    animation:
+        cardIn .9s cubic-bezier(.2,.8,.2,1);
+
+    pointer-events:auto;
+
+    scrollbar-width:none;
+}
+
+.card::-webkit-scrollbar{
+    display:none;
+}
+
+
+@keyframes cardIn{
+
+    from{
+        opacity:0;
+
+        transform:
+            translateY(35px)
+            scale(.92);
+    }
+
+    to{
+        opacity:1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+
+/* ==============================
+   TEXT
+================================ */
+
+.small{
+
+    font-size:
+        clamp(10px,2.8vw,14px);
+
+    letter-spacing:
+        clamp(2px,1vw,4px);
+
+    opacity:.65;
+
+    margin-bottom:14px;
+}
+
+
+h1{
+
+    font-size:
+        clamp(
+            32px,
+            9vw,
+            58px
+        );
+
+    line-height:1.05;
+
+    margin-bottom:18px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ffffff,
+            #ff8fba,
+            #ffffff
+        );
+
+    -webkit-background-clip:text;
+
+    -webkit-text-fill-color:
+        transparent;
+
+}
+
+
+.message{
+
+    font-size:
+        clamp(15px,4vw,18px);
+
+    line-height:1.75;
+
+    color:
+        rgba(255,255,255,.87);
+
+}
+
+
+.message b{
+    color:#ff9fc1;
+}
+
+
+/* ==============================
+   BUTTONS
+================================ */
+
+.buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+
+    margin-top:22px;
+
+}
+
+
+button{
+
+    min-width:
+        130px;
+
+    min-height:
+        52px;
+
+    padding:
+        14px 25px;
+
+    border:none;
+
+    border-radius:
+        50px;
+
+    font-size:
+        clamp(15px,4vw,18px);
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    touch-action:manipulation;
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+
+}
+
+
+button:active{
+    transform:
+        scale(.94);
+}
+
+
+.yes{
+
+    color:white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff126d,
+            #ff4f99
+        );
+
+    box-shadow:
+        0 12px 35px
+        rgba(255,20,110,.42);
+
+}
+
+
+.no{
+
+    color:#eee;
+
+    background:
+        rgba(255,255,255,.07);
+
+    border:
+        1px solid
+        rgba(255,255,255,.15);
+
+}
+
+
+/* ==============================
+   GIFT
+================================ */
+
+.gift-wrapper{
+
+    width:
+        190px;
+
+    height:
+        180px;
+
+    margin:
+        20px auto 15px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+
+.gift{
+
+    width:150px;
+
+    height:130px;
+
+    position:relative;
+
+    cursor:pointer;
+
+    transform-style:
+        preserve-3d;
+
+    animation:
+        floatingGift 3s
+        ease-in-out
+        infinite;
+
+}
+
+
+@keyframes floatingGift{
+
+    0%,100%{
+        transform:
+            translateY(0)
+            rotateY(-4deg);
+    }
+
+    50%{
+        transform:
+            translateY(-13px)
+            rotateY(4deg);
+    }
+
+}
+
+
+/* BOX */
+
+.gift-box{
+
+    position:absolute;
+
+    left:15px;
+
+    bottom:0;
+
+    width:120px;
+
+    height:85px;
+
+    border-radius:8px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff2b77,
+            #a90048
+        );
+
+    box-shadow:
+        0 20px 45px
+        rgba(255,0,100,.35);
+
+}
+
+
+.gift-box::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+
+    top:0;
+
+    transform:
+        translateX(-50%);
+
+    width:21px;
+
+    height:100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ffd35a,
+            #fff0a0,
+            #ffd35a
+        );
+
+}
+
+
+/* LID */
+
+.gift-lid{
+
+    position:absolute;
+
+    left:5px;
+
+    top:20px;
+
+    width:140px;
+
+    height:32px;
+
+    border-radius:8px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff5797,
+            #d00058
+        );
+
+    z-index:3;
+
+    transform-origin:
+        left bottom;
+
+    transition:
+        transform 1s
+        cubic-bezier(.2,.8,.2,1);
+
+}
+
+
+.gift-lid::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+
+    transform:
+        translateX(-50%);
+
+    width:21px;
+
+    height:32px;
+
+    background:#ffd35a;
+
+}
+
+
+/* RIBBON */
+
+.ribbon{
+
+    position:absolute;
+
+    left:50%;
+
+    top:0;
+
+    width:45px;
+
+    height:25px;
+
+    transform:
+        translateX(-50%);
+
+    z-index:5;
+
+}
+
+
+.ribbon::before,
+.ribbon::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:30px;
+
+    height:20px;
+
+    border:
+        5px solid
+        #ffd35a;
+
+    border-radius:50%;
+
+}
+
+
+.ribbon::before{
+
+    left:-22px;
+
+    transform:
+        rotate(30deg);
+
+}
+
+
+.ribbon::after{
+
+    right:-22px;
+
+    transform:
+        rotate(-30deg);
+
+}
+
+
+/* OPEN */
+
+.gift.open .gift-lid{
+
+    transform:
+        rotateZ(-35deg)
+        translateY(-15px)
+        translateX(-10px);
+
+}
+
+
+.gift.open{
+
+    animation:
+        giftOpen .8s
+        ease forwards;
+
+}
+
+
+@keyframes giftOpen{
+
+    50%{
+        transform:
+            scale(1.15)
+            rotateY(10deg);
+    }
+
+    100%{
+        transform:
+            scale(1)
+            rotateY(0);
+    }
+
+}
+
+
+/* ==============================
+   HEART
+================================ */
+
+.heart{
+
+    font-size:
+        clamp(55px,15vw,80px);
+
+    margin-bottom:12px;
+
+    animation:
+        heartbeat 1.2s
+        infinite;
+
+}
+
+
+@keyframes heartbeat{
+
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.15);
+    }
+
+}
+
+
+/* ==============================
+   FINAL
+================================ */
+
+.signature{
+
+    margin-top:25px;
+
+    font-size:
+        clamp(18px,5vw,23px);
+
+    color:#ff91b8;
+
+    font-weight:600;
+
+}
+
+
+/* ==============================
+   HIDDEN
+================================ */
+
+.hidden{
+    display:none!important;
+}
+
+
+/* ==============================
+   FLOATING HEARTS
+================================ */
+
+.floating-heart{
+
+    position:fixed;
+
+    bottom:-50px;
+
+    z-index:3;
+
+    pointer-events:none;
+
+    animation:
+        floatHeart
+        linear
+        forwards;
+
+}
+
+
+@keyframes floatHeart{
+
+    from{
+
+        transform:
+            translateY(0)
+            rotate(0deg);
+
+        opacity:0;
+
+    }
+
+    15%{
+        opacity:.8;
+    }
+
+    to{
+
+        transform:
+            translateY(
+                calc(-100dvh - 100px)
+            )
+            rotate(360deg);
+
+        opacity:0;
+
+    }
+
+}
+
+
+/* ==============================
+   MUSIC BUTTON
+================================ */
+
+.music{
+
+    position:fixed;
+
+    right:
+        max(15px,env(safe-area-inset-right));
+
+    top:
+        max(15px,env(safe-area-inset-top));
+
+    z-index:20;
+
+    min-width:0;
+
+    width:46px;
+
+    height:46px;
+
+    padding:0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border-radius:50%;
+
+    background:
+        rgba(255,255,255,.1);
+
+    border:
+        1px solid
+        rgba(255,255,255,.18);
+
+    color:white;
+
+    font-size:20px;
+
+}
+
+
+/* ==============================
+   BOTTOM TEXT
+================================ */
+
+.bottom-text{
+
+    position:fixed;
+
+    bottom:
+        max(12px,env(safe-area-inset-bottom));
+
+    left:50%;
+
+    transform:
+        translateX(-50%);
+
+    z-index:10;
+
+    width:90%;
+
+    text-align:center;
+
+    font-size:11px;
+
+    opacity:.45;
+
+    pointer-events:none;
+
+}
+
+
+/* ==============================
+   MOBILE
+================================ */
+
+@media(max-width:600px){
+
+    .card{
+
+        width:
+            calc(100vw - 28px);
+
+        max-height:
+            calc(100dvh - 28px);
+
+        padding:
+            27px 20px;
+
+    }
+
+
+    .gift-wrapper{
+
+        transform:
+            scale(.88);
+
+        margin-top:5px;
+
+        margin-bottom:0;
+
+    }
+
+
+    button{
+
+        min-width:
+            120px;
+
+    }
+
+}
+
+
+@media(max-width:380px){
+
+    .card{
+
+        padding:
+            22px 16px;
+
+    }
+
+    .buttons{
+
+        flex-direction:
+            column;
+
+    }
+
+    button{
+
+        width:
+            min(100%,250px);
+
+    }
+
+}
+
+
+/* ==============================
+   LANDSCAPE MOBILE
+================================ */
+
+@media(max-height:500px){
+
+    .card{
+
+        padding:
+            16px 20px;
+
+    }
+
+    .heart{
+
+        font-size:45px;
+
+        margin-bottom:5px;
+
+    }
+
+    .gift-wrapper{
+
+        transform:
+            scale(.65);
+
+        height:120px;
+
+        margin:0 auto -10px;
+
+    }
+
+    h1{
+
+        margin-bottom:8px;
+
+    }
+
+    .message{
+
+        line-height:1.45;
+
+    }
+
+}
+
+
+/* ==============================
+   REDUCE MOTION
+================================ */
+
+@media(prefers-reduced-motion:reduce){
+
+    *,
+    *::before,
+    *::after{
+
+        animation-duration:.01ms!important;
+
+        animation-iteration-count:1!important;
+
+        transition-duration:.01ms!important;
+
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+<div class="glow"></div>
+
+
+<!-- MUSIC BUTTON -->
+
+<button
+    class="music"
+    id="musicBtn"
+    aria-label="Music">
+    🔇
+</button>
+
+
+<div class="overlay">
+
+
+<!-- ==========================
+     STEP 1
+=========================== -->
+
+<section
+    class="card"
+    id="step1">
+
+    <div class="small">
+        A LITTLE SURPRISE FOR
+    </div>
+
+    <h1>
+        Emine Alagoz ❤️
+    </h1>
+
+    <p class="message">
+
+        I made something special
+        just for you...
+
+        <br>
+
+        But first,
+        you have to open the gift. 🎁
+
+    </p>
+
+
+    <div class="gift-wrapper">
+
+        <div
+            class="gift"
+            id="gift"
+            role="button"
+            tabindex="0"
+            aria-label="Open gift">
+
+            <div class="ribbon"></div>
+
+            <div
+                class="gift-lid">
+            </div>
+
+            <div
+                class="gift-box">
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <p class="message">
+
+        Tap the gift 🎁
+
+    </p>
+
+</section>
+
+
+
+<!-- ==========================
+     STEP 2
+=========================== -->
+
+<section
+    class="card hidden"
+    id="step2">
+
+    <div class="heart">
+        💖
+    </div>
+
+    <h1>
+        Emine...
+    </h1>
+
+    <p class="message">
+
+        Some people enter our life
+        unexpectedly...
+
+        <br><br>
+
+        And somehow,
+        they make ordinary moments
+        feel special.
+
+        <br><br>
+
+        For me,
+        <b>that person is you.</b>
+
+    </p>
+
+
+    <div class="buttons">
+
+        <button
+            class="yes"
+            id="continueBtn">
+
+            Continue ❤️
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==========================
+     STEP 3
+=========================== -->
+
+<section
+    class="card hidden"
+    id="step3">
+
+    <div class="heart">
+        💗
+    </div>
+
+    <h1>
+        One Question...
+    </h1>
+
+    <p class="message">
+
+        Emine Alagoz,
+
+        <br><br>
+
+        <b>
+            Do you love me?
+        </b>
+
+    </p>
+
+
+    <div class="buttons">
+
+        <button
+            class="yes"
+            id="yesBtn">
+
+            YES ❤️
+
+        </button>
+
+
+        <button
+            class="no"
+            id="noBtn">
+
+            NO 🙈
+
+        </button>
+
+    </div>
+
+
+    <p
+        id="noMessage"
+        class="message"
+        style="
+            font-size:13px;
+            margin-top:10px;
+            opacity:.55;
+        ">
+    </p>
+
+</section>
+
+
+
+<!-- ==========================
+     STEP 4
+=========================== -->
+
+<section
+    class="card hidden"
+    id="step4">
+
+    <div class="heart">
+        💖
+    </div>
+
+    <h1>
+        You Said YES!
+    </h1>
+
+    <p class="message">
+
+        Emine,
+        you just made Rumel
+        incredibly happy. 🥹❤️
+
+        <br><br>
+
+        I don't promise that
+        every day will be perfect.
+
+        <br><br>
+
+        But I promise that
+        I'll always try to make
+        you smile.
+
+        <br><br>
+
+        Thank you for giving
+        this a chance. ❤️
+
+    </p>
+
+
+    <div class="signature">
+
+        — Rumel Molla ❤️
+
+    </div>
+
+</section>
+
+</div>
+
+
+<div class="bottom-text">
+
+    Made with ❤️ by Rumel
+
+</div>
+
+
+<!-- ==============================
+     AUDIO
+================================ -->
+
+<audio
+    id="music"
+    loop
+    preload="none">
+
+    <!--
+    নিজের music চাইলে এখানে
+    online MP3 URL বসাতে পারো.
+    -->
+
+</audio>
+
+
+<script>
+
+/* ==================================
+   THREE.JS
+================================== */
+
+const scene =
+    new THREE.Scene();
+
+
+const camera =
+    new THREE.PerspectiveCamera(
+        60,
+        window.innerWidth /
+        window.innerHeight,
+        0.1,
+        100
+    );
+
+
+camera.position.z = 25;
+
+
+const renderer =
+    new THREE.WebGLRenderer({
+        antialias:true,
+        alpha:true,
+        powerPreference:"high-performance"
+    });
+
+
+renderer.setSize(
+    window.innerWidth,
+    window.innerHeight
+);
+
+
+renderer.setPixelRatio(
+    Math.min(
+        window.devicePixelRatio || 1,
+        1.7
+    )
+);
+
+
+document.body.appendChild(
+    renderer.domElement
+);
+
+
+/* ==================================
+   PARTICLES
+================================== */
+
+const particleCount =
+    window.innerWidth < 600
+        ? 450
+        : 850;
+
+
+const geometry =
+    new THREE.BufferGeometry();
+
+
+const positions =
+    new Float32Array(
+        particleCount * 3
+    );
+
+
+for(
+    let i=0;
+    i<particleCount*3;
+    i++
+){
+
+    positions[i] =
+        (Math.random()-.5)*80;
+
+}
+
+
+geometry.setAttribute(
+    "position",
+    new THREE.BufferAttribute(
+        positions,
+        3
+    )
+);
+
+
+const material =
+    new THREE.PointsMaterial({
+
+        size:
+            window.innerWidth < 600
+                ? .09
+                : .12,
+
+        transparent:true,
+
+        opacity:.7
+
+    });
+
+
+const stars =
+    new THREE.Points(
+        geometry,
+        material
+    );
+
+
+scene.add(stars);
+
+
+/* ==================================
+   ANIMATION
+================================== */
+
+let animationRunning = true;
+
+
+function animate(){
+
+    if(!animationRunning)
+        return;
+
+    requestAnimationFrame(
+        animate
+    );
+
+
+    stars.rotation.y += .00045;
+
+    stars.rotation.x += .00015;
+
+
+    renderer.render(
+        scene,
+        camera
+    );
+
+}
+
+
+animate();
+
+
+/* ==================================
+   RESIZE
+================================== */
+
+window.addEventListener(
+    "resize",
+    () => {
+
+        camera.aspect =
+            window.innerWidth /
+            window.innerHeight;
+
+        camera.updateProjectionMatrix();
+
+
+        renderer.setSize(
+            window.innerWidth,
+            window.innerHeight
+        );
+
+
+        renderer.setPixelRatio(
+            Math.min(
+                window.devicePixelRatio || 1,
+                1.7
+            )
+        );
+
+    }
+);
+
+
+/* ==================================
+   SCREEN CONTROL
+================================== */
+
+function showStep(id){
+
+    document
+        .querySelectorAll(".card")
+        .forEach(card => {
+
+            card.classList.add(
+                "hidden"
+            );
+
+        });
+
+
+    const target =
+        document.getElementById(id);
+
+
+    target.classList.remove(
+        "hidden"
+    );
+
+}
+
+
+/* ==================================
+   GIFT OPEN
+================================== */
+
+const gift =
+    document.getElementById(
+        "gift"
+    );
+
+
+function openGift(){
+
+    if(gift.classList.contains("open"))
+        return;
+
+
+    gift.classList.add("open");
+
+
+    createExplosion(
+        window.innerWidth/2,
+        window.innerHeight/2,
+        20
+    );
+
+
+    setTimeout(
+        () => {
+
+            showStep("step2");
+
+        },
+        900
+    );
+
+}
+
+
+gift.addEventListener(
+    "click",
+    openGift
+);
+
+
+gift.addEventListener(
+    "touchend",
+    e => {
+
+        e.preventDefault();
+
+        openGift();
+
+    },
+    {
+        passive:false
+    }
+);
+
+
+gift.addEventListener(
+    "keydown",
+    e => {
+
+        if(
+            e.key === "Enter" ||
+            e.key === " "
+        ){
+
+            e.preventDefault();
+
+            openGift();
+
+        }
+
+    }
+);
+
+
+/* ==================================
+   CONTINUE
+================================== */
+
+document
+    .getElementById("continueBtn")
+    .addEventListener(
+        "click",
+        () => {
+
+            showStep("step3");
+
+        }
+    );
+
+
+/* ==================================
+   YES
+================================== */
+
+document
+    .getElementById("yesBtn")
+    .addEventListener(
+        "click",
+        () => {
+
+            showStep("step4");
+
+            createMassiveHearts();
+
+            createExplosion(
+                window.innerWidth/2,
+                window.innerHeight/2,
+                100
+            );
+
+        }
+    );
+
+
+/* ==================================
+   NO
+================================== */
+
+const noBtn =
+    document.getElementById(
+        "noBtn"
+    );
+
+
+const noMessage =
+    document.getElementById(
+        "noMessage"
+    );
+
+
+noBtn.addEventListener(
+    "click",
+    () => {
+
+        noMessage.innerText =
+            "It's okay ❤️ Take your time.";
+
+    }
+);
+
+
+/* ==================================
+   FLOATING HEARTS
+================================== */
+
+function createHeart(){
+
+    const heart =
+        document.createElement(
+            "div"
+        );
+
+
+    heart.className =
+        "floating-heart";
+
+
+    heart.innerText =
+        [
+            "❤️",
+            "💖",
+            "💕",
+            "💗",
+            "💓"
+        ][
+            Math.floor(
+                Math.random()*5
+            )
+        ];
+
+
+    heart.style.left =
+        Math.random()*100 + "%";
+
+
+    heart.style.fontSize =
+        12 +
+        Math.random()*25 +
+        "px";
+
+
+    heart.style.animationDuration =
+        5 +
+        Math.random()*6 +
+        "s";
+
+
+    document.body.appendChild(
+        heart
+    );
+
+
+    setTimeout(
+        () => heart.remove(),
+        12000
+    );
+
+}
+
+
+setInterval(
+    createHeart,
+    650
+);
+
+
+/* ==================================
+   MASSIVE HEARTS
+================================== */
+
+function createMassiveHearts(){
+
+    for(
+        let i=0;
+        i<70;
+        i++
+    ){
+
+        setTimeout(
+            () => {
+
+                createExplosionHeart();
+
+            },
+            i*30
+        );
+
+    }
+
+}
+
+
+function createExplosionHeart(){
+
+    const heart =
+        document.createElement(
+            "div"
+        );
+
+
+    heart.style.position =
+        "fixed";
+
+
+    heart.style.left =
+        "50%";
+
+
+    heart.style.top =
+        "52%";
+
+
+    heart.style.zIndex =
+        "30";
+
+
+    heart.style.pointerEvents =
+        "none";
+
+
+    heart.innerText =
+        [
+            "❤️",
+            "💖",
+            "💕",
+            "💗"
+        ][
+            Math.floor(
+                Math.random()*4
+            )
+        ];
+
+
+    heart.style.fontSize =
+        15 +
+        Math.random()*30 +
+        "px";
+
+
+    document.body.appendChild(
+        heart
+    );
+
+
+    const angle =
+        Math.random() *
+        Math.PI * 2;
+
+
+    const distance =
+        150 +
+        Math.random()*450;
+
+
+    const x =
+        Math.cos(angle) *
+        distance;
+
+
+    const y =
+        Math.sin(angle) *
+        distance;
+
+
+    heart.animate(
+
+        [
+
+            {
+                transform:
+                    "translate(-50%,-50%) scale(.2)",
+
+                opacity:0
+
+            },
+
+            {
+                transform:
+                    `translate(
+                        calc(-50% + ${x}px),
+                        calc(-50% + ${y}px)
+                    )
+                    scale(1.2)`,
+
+                opacity:1
+
+            },
+
+            {
+                transform:
+                    `translate(
+                        calc(-50% + ${x*1.25}px),
+                        calc(-50% + ${y*1.25}px)
+                    )
+                    scale(.5)`,
+
+                opacity:0
+
+            }
+
+        ],
+
+        {
+
+            duration:
+                1800 +
+                Math.random()*900,
+
+            easing:
+                "cubic-bezier(.2,.8,.2,1)"
+
+        }
+
+    ).onfinish =
+        () => heart.remove();
+
+}
+
+
+/* ==================================
+   SMALL EXPLOSION
+================================== */
+
+function createExplosion(
+    centerX,
+    centerY,
+    count
+){
+
+    for(
+        let i=0;
+        i<count;
+        i++
+    ){
+
+        const particle =
+            document.createElement(
+                "div"
+            );
+
+
+        particle.style.position =
+            "fixed";
+
+
+        particle.style.left =
+            centerX + "px";
+
+
+        particle.style.top =
+            centerY + "px";
+
+
+        particle.style.width =
+            "6px";
+
+
+        particle.style.height =
+            "6px";
+
+
+        particle.style.borderRadius =
+            "50%";
+
+
+        particle.style.background =
+            "#ff7eae";
+
+
+        particle.style.boxShadow =
+            "0 0 15px #ff4f99";
+
+
+        particle.style.zIndex =
+            "25";
+
+
+        particle.style.pointerEvents =
+            "none";
+
+
+        document.body.appendChild(
+            particle
+        );
+
+
+        const angle =
+            Math.random() *
+            Math.PI * 2;
+
+
+        const distance =
+            50 +
+            Math.random()*180;
+
+
+        const x =
+            Math.cos(angle)*distance;
+
+
+        const y =
+            Math.sin(angle)*distance;
+
+
+        particle.animate(
+
+            [
+
+                {
+                    transform:
+                        "translate(-50%,-50%) scale(1)",
+                    opacity:1
+
+                },
+
+                {
+
+                    transform:
+                        `translate(
+                            calc(-50% + ${x}px),
+                            calc(-50% + ${y}px)
+                        )
+                        scale(0)`,
+
+                    opacity:0
+
+                }
+
+            ],
+
+            {
+
+                duration:
+                    800 +
+                    Math.random()*700,
+
+                easing:"ease-out"
+
+            }
+
+        ).onfinish =
+            () => particle.remove();
+
+    }
+
+}
+
+
+/* ==================================
+   MOUSE PARALLAX
+================================== */
+
+let targetX = 0;
+let targetY = 0;
+
+document.addEventListener(
+    "mousemove",
+    e => {
+
+        targetX =
+            (e.clientX /
+            window.innerWidth -
+            .5) * 2;
+
+
+        targetY =
+            (e.clientY /
+            window.innerHeight -
+            .5) * 2;
+
+    }
+);
+
+
+/* ==================================
+   TOUCH PARALLAX
+================================== */
+
+document.addEventListener(
+    "touchmove",
+    e => {
+
+        if(!e.touches.length)
+            return;
+
+
+        const touch =
+            e.touches[0];
+
+
+        targetX =
+            (touch.clientX /
+            window.innerWidth -
+            .5) * 1.2;
+
+
+        targetY =
+            (touch.clientY /
+            window.innerHeight -
+            .5) * 1.2;
+
+    },
+    {
+        passive:true
+    }
+);
+
+
+/* ==================================
+   SMOOTH CAMERA
+================================== */
+
+function smoothCamera(){
+
+    camera.position.x +=
+        (targetX*2 -
+         camera.position.x)
+        * .025;
+
+
+    camera.position.y +=
+        (-targetY*2 -
+         camera.position.y)
+        * .025;
+
+
+    camera.lookAt(
+        scene.position
+    );
+
+
+    requestAnimationFrame(
+        smoothCamera
+    );
+
+}
+
+
+smoothCamera();
+
+
+/* ==================================
+   MUSIC
+================================== */
+
+const music =
+    document.getElementById(
+        "music"
+    );
+
+
+const musicBtn =
+    document.getElementById(
+        "musicBtn"
+    );
+
+
+let musicPlaying = false;
+
+
+musicBtn.addEventListener(
+    "click",
+    async () => {
+
+        if(!music.src){
+
+            alert(
+                "Music add করতে HTML-এর audio অংশে তোমার MP3 file/link দিতে হবে."
+            );
+
+            return;
+
+        }
+
+
+        if(musicPlaying){
+
+            music.pause();
+
+            musicPlaying = false;
+
+            musicBtn.innerText =
+                "🔇";
+
+        }else{
+
+            try{
+
+                await music.play();
+
+                musicPlaying = true;
+
+                musicBtn.innerText =
+                    "🔊";
+
+            }catch(error){
+
+                console.log(error);
+
+            }
+
+        }
+
+    }
+);
+
+
+/* ==================================
+   PREVENT DOUBLE TAP ZOOM
+================================== */
+
+let lastTouchEnd = 0;
+
+
+document.addEventListener(
+    "touchend",
+    e => {
+
+        const now =
+            Date.now();
+
+
+        if(
+            now - lastTouchEnd <= 300
+        ){
+
+            e.preventDefault();
+
+        }
+
+
+        lastTouchEnd =
+            now;
+
+    },
+    {
+        passive:false
+    }
+);
+
+</script>
+
+</body>
+</html>
+```
